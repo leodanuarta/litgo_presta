@@ -31,3 +31,4 @@
     {l s='All products' d='Shop.Theme.Catalog'}<i class="material-icons">&#xE315;</i>
   </a>
 </section>
+
