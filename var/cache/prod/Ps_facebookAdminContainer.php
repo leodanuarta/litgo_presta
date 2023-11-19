@@ -69,8 +69,14 @@ class Ps_facebookAdminContainer extends Container
             'prestashop\\modulelibguzzleadapter\\clientfactory' => 'Prestashop\\ModuleLibGuzzleAdapter\\ClientFactory',
             'prestashop\\psaccountsinstaller\\installer\\facade\\psaccounts' => 'PrestaShop\\PsAccountsInstaller\\Installer\\Facade\\PsAccounts',
             'prestashop\\psaccountsinstaller\\installer\\installer' => 'PrestaShop\\PsAccountsInstaller\\Installer\\Installer',
+            'prestashopcorp\\billing\\presenter\\billingpresenter' => 'PrestaShopCorp\\Billing\\Presenter\\BillingPresenter',
+            'prestashopcorp\\billing\\services\\billingservice' => 'PrestaShopCorp\\Billing\\Services\\BillingService',
+            'prestashopcorp\\billing\\wrappers\\billingcontextwrapper' => 'PrestaShopCorp\\Billing\\Wrappers\\BillingContextWrapper',
         ];
         $this->methodMap = [
+            'PrestaShopCorp\\Billing\\Presenter\\BillingPresenter' => 'getBillingPresenterService',
+            'PrestaShopCorp\\Billing\\Services\\BillingService' => 'getBillingServiceService',
+            'PrestaShopCorp\\Billing\\Wrappers\\BillingContextWrapper' => 'getBillingContextWrapperService',
             'PrestaShop\\Module\\PrestashopFacebook\\API\\Client\\FacebookCategoryClient' => 'getFacebookCategoryClientService',
             'PrestaShop\\Module\\PrestashopFacebook\\API\\Client\\FacebookClient' => 'getFacebookClientService',
             'PrestaShop\\Module\\PrestashopFacebook\\API\\EventSubscriber\\AccountSuspendedSubscriber' => 'getAccountSuspendedSubscriberService',
@@ -126,6 +132,9 @@ class Ps_facebookAdminContainer extends Container
             'ps_facebook.shop' => 'getPsFacebook_ShopService',
             'ps_facebook.smarty' => 'getPsFacebook_SmartyService',
         ];
+        $this->privates = [
+            'PrestaShopCorp\\Billing\\Wrappers\\BillingContextWrapper' => true,
+        ];
         $this->aliases = [
             'PrestaShop\\Module\\PrestashopFacebook\\Provider\\GoogleCategoryProviderInterface' => 'PrestaShop\\Module\\PrestashopFacebook\\Provider\\GoogleCategoryProvider',
             'PrestaShop\\Module\\PrestashopFacebook\\Provider\\ProductAvailabilityProviderInterface' => 'PrestaShop\\Module\\PrestashopFacebook\\Provider\\ProductAvailabilityProvider',
@@ -135,6 +144,7 @@ class Ps_facebookAdminContainer extends Container
     public function getRemovedIds()
     {
         return [
+            'PrestaShopCorp\\Billing\\Wrappers\\BillingContextWrapper' => true,
             'Psr\\Container\\ContainerInterface' => true,
             'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
         ];
@@ -155,6 +165,26 @@ class Ps_facebookAdminContainer extends Container
         @trigger_error(sprintf('The %s() method is deprecated since Symfony 3.3 and will be removed in 4.0. Use the isCompiled() method instead.', __METHOD__), E_USER_DEPRECATED);
 
         return true;
+    }
+
+    /**
+     * Gets the public 'PrestaShopCorp\Billing\Presenter\BillingPresenter' shared service.
+     *
+     * @return \PrestaShopCorp\Billing\Presenter\BillingPresenter
+     */
+    protected function getBillingPresenterService()
+    {
+        return $this->services['PrestaShopCorp\\Billing\\Presenter\\BillingPresenter'] = new \PrestaShopCorp\Billing\Presenter\BillingPresenter(${($_ = isset($this->services['PrestaShopCorp\\Billing\\Wrappers\\BillingContextWrapper']) ? $this->services['PrestaShopCorp\\Billing\\Wrappers\\BillingContextWrapper'] : $this->getBillingContextWrapperService()) && false ?: '_'}, ${($_ = isset($this->services['ps_facebook']) ? $this->services['ps_facebook'] : $this->getPsFacebookService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'PrestaShopCorp\Billing\Services\BillingService' shared service.
+     *
+     * @return \PrestaShopCorp\Billing\Services\BillingService
+     */
+    protected function getBillingServiceService()
+    {
+        return $this->services['PrestaShopCorp\\Billing\\Services\\BillingService'] = new \PrestaShopCorp\Billing\Services\BillingService(${($_ = isset($this->services['PrestaShopCorp\\Billing\\Wrappers\\BillingContextWrapper']) ? $this->services['PrestaShopCorp\\Billing\\Wrappers\\BillingContextWrapper'] : $this->getBillingContextWrapperService()) && false ?: '_'}, ${($_ = isset($this->services['ps_facebook']) ? $this->services['ps_facebook'] : $this->getPsFacebookService()) && false ?: '_'});
     }
 
     /**
@@ -695,5 +725,15 @@ class Ps_facebookAdminContainer extends Container
     protected function getPsFacebook_SmartyService()
     {
         return $this->services['ps_facebook.smarty'] = \PrestaShop\Module\PrestashopFacebook\Factory\ContextFactory::getSmarty();
+    }
+
+    /**
+     * Gets the private 'PrestaShopCorp\Billing\Wrappers\BillingContextWrapper' shared service.
+     *
+     * @return \PrestaShopCorp\Billing\Wrappers\BillingContextWrapper
+     */
+    protected function getBillingContextWrapperService()
+    {
+        return $this->services['PrestaShopCorp\\Billing\\Wrappers\\BillingContextWrapper'] = new \PrestaShopCorp\Billing\Wrappers\BillingContextWrapper(${($_ = isset($this->services['PrestaShop\\PsAccountsInstaller\\Installer\\Facade\\PsAccounts']) ? $this->services['PrestaShop\\PsAccountsInstaller\\Installer\\Facade\\PsAccounts'] : $this->getPsAccountsService()) && false ?: '_'}, ${($_ = isset($this->services['ps_facebook.context']) ? $this->services['ps_facebook.context'] : $this->getPsFacebook_ContextService()) && false ?: '_'});
     }
 }
