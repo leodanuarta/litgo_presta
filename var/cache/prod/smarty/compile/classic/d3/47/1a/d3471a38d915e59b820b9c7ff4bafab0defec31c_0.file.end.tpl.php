@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.48, created on 2023-11-19 21:24:10
+/* Smarty version 3.1.48, created on 2023-11-22 21:46:06
   from 'C:\xampp\htdocs\litgo_presta\modules\welcome\views\contents\end.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_655a1a8ab70ec2_73108286',
+  'unifunc' => 'content_655e142eee0dc9_88323640',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_655a1a8ab70ec2_73108286 (Smarty_Internal_Template $_smarty_tpl) {
+function content_655e142eee0dc9_88323640 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="onboarding-welcome" class="modal-body">
     <div class="col-12">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.48, created on 2023-11-19 21:24:12
+/* Smarty version 3.1.48, created on 2023-11-22 22:36:01
   from 'C:\xampp\htdocs\litgo_presta\admin924z3q7ci\themes\default\template\nav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_655a1a8c0b69b9_23497136',
+  'unifunc' => 'content_655e1fe1acfbe7_44982937',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f727ce577a1088ef67e47b105bc126466ca63401' => 
     array (
       0 => 'C:\\xampp\\htdocs\\litgo_presta\\admin924z3q7ci\\themes\\default\\template\\nav.tpl',
-      1 => 1699765662,
+      1 => 1700667359,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_655a1a8c0b69b9_23497136 (Smarty_Internal_Template $_smarty_tpl) {
+function content_655e1fe1acfbe7_44982937 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="nav-bar" role="navigation" id="nav-sidebar">
 	<span class="menu-collapse" data-toggle-url="<?php echo $_smarty_tpl->tpl_vars['toggle_navigation_url']->value;?>
 ">
@@ -38,35 +38,39 @@ $_smarty_tpl->tpl_vars['level_1']->do_else = false;
 ?>
         <?php if ($_smarty_tpl->tpl_vars['level_1']->value['active']) {?>
                     <?php if ($_smarty_tpl->tpl_vars['level_1']->value['class_name'] == 'AdminDashboard') {?>
-            <li class="link-levelone<?php if ($_smarty_tpl->tpl_vars['level_1']->value['current']) {?> link-active<?php }?>" id="tab-<?php echo $_smarty_tpl->tpl_vars['level_1']->value['class_name'];?>
+            <?php if ($_smarty_tpl->tpl_vars['level_1']->value['class_name'] != 'SELL') {?>
+              <li class="link-levelone<?php if ($_smarty_tpl->tpl_vars['level_1']->value['current']) {?> link-active<?php }?>" id="tab-<?php echo $_smarty_tpl->tpl_vars['level_1']->value['class_name'];?>
 " data-submenu="<?php echo $_smarty_tpl->tpl_vars['level_1']->value['id_tab'];?>
 ">
-              <a href="<?php if (count($_smarty_tpl->tpl_vars['level_1']->value['sub_tabs']) && (isset($_smarty_tpl->tpl_vars['level_1']->value['sub_tabs'][0]['href']))) {
+                <a href="<?php if (count($_smarty_tpl->tpl_vars['level_1']->value['sub_tabs']) && (isset($_smarty_tpl->tpl_vars['level_1']->value['sub_tabs'][0]['href']))) {
 echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_1']->value['sub_tabs'][0]['href'],'html','UTF-8' ));
 } else {
 echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_1']->value['href'],'html','UTF-8' ));
 }?>" class="link" >
-                <i class="material-icons"><?php echo $_smarty_tpl->tpl_vars['level_1']->value['icon'];?>
+                  <i class="material-icons"><?php echo $_smarty_tpl->tpl_vars['level_1']->value['icon'];?>
 </i>
-                <span><?php if ($_smarty_tpl->tpl_vars['level_1']->value['name'] == '') {
+                  <span><?php if ($_smarty_tpl->tpl_vars['level_1']->value['name'] == '') {
 echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_1']->value['class_name'],'html','UTF-8' ));
 } else {
 echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_1']->value['name'],'html','UTF-8' ));
 }?></span>
-              </a>
-            </li>
+                </a>
+              </li>
+            <?php }?>
           <?php } else { ?>
-            <li class="category-title<?php if ($_smarty_tpl->tpl_vars['level_1']->value['current']) {?> link-active<?php }?>" id="tab-<?php echo $_smarty_tpl->tpl_vars['level_1']->value['class_name'];?>
+            <?php if ($_smarty_tpl->tpl_vars['level_1']->value['class_name'] != 'SELL') {?>
+              <li class="category-title<?php if ($_smarty_tpl->tpl_vars['level_1']->value['current']) {?> link-active<?php }?>" id="tab-<?php echo $_smarty_tpl->tpl_vars['level_1']->value['class_name'];?>
 " data-submenu="<?php echo $_smarty_tpl->tpl_vars['level_1']->value['id_tab'];?>
 ">
-              <span class="title">
-                <span><?php if ($_smarty_tpl->tpl_vars['level_1']->value['name'] == '') {
+                <span class="title">
+                  <span><?php if ($_smarty_tpl->tpl_vars['level_1']->value['name'] == '') {
 echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_1']->value['class_name'],'html','UTF-8' ));
 } else {
 echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_1']->value['name'],'html','UTF-8' ));
 }?></span>
-              </span>
-            </li>
+                </span>
+              </li>
+            <?php }?>
 
             <?php if (count($_smarty_tpl->tpl_vars['level_1']->value['sub_tabs'])) {?>
               <?php
@@ -83,38 +87,38 @@ $_smarty_tpl->tpl_vars['level_2']->do_else = false;
                   <?php } elseif ($_smarty_tpl->tpl_vars['level_2']->value['current'] && $_smarty_tpl->tpl_vars['collapse_menu']->value) {?>
                     <?php $_smarty_tpl->_assignInScope('mainTabClass', " link-active");?>
                   <?php }?>
-                  <li class="link-levelone<?php if (count($_smarty_tpl->tpl_vars['level_2']->value['sub_tabs'])) {?> has_submenu<?php }
+                  <?php if ($_smarty_tpl->tpl_vars['level_2']->value['class_name'] != 'AdminParentOrders') {?>
+                    <li class="link-levelone<?php if (count($_smarty_tpl->tpl_vars['level_2']->value['sub_tabs'])) {?> has_submenu<?php }
 echo $_smarty_tpl->tpl_vars['mainTabClass']->value;?>
 " id="subtab-<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_2']->value['class_name'],'html','UTF-8' ));?>
 " data-submenu="<?php echo $_smarty_tpl->tpl_vars['level_2']->value['id_tab'];?>
 ">
-                    <a href="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_2']->value['href'],'html','UTF-8' ));?>
+                      <a href="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_2']->value['href'],'html','UTF-8' ));?>
 " class="link">
-                      <i class="material-icons mi-<?php echo $_smarty_tpl->tpl_vars['level_2']->value['icon'];?>
+                        <i class="material-icons mi-<?php echo $_smarty_tpl->tpl_vars['level_2']->value['icon'];?>
 "><?php echo $_smarty_tpl->tpl_vars['level_2']->value['icon'];?>
 </i>
-                      <span>
-                        <?php if ($_smarty_tpl->tpl_vars['level_2']->value['name'] == '') {
+                        <span>
+                          <?php if ($_smarty_tpl->tpl_vars['level_2']->value['name'] == '') {
 echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_2']->value['class_name'],'html','UTF-8' ));
 } else {
 echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_2']->value['name'],'html','UTF-8' ));
 }?>
-                      </span>
-                      <?php if (count($_smarty_tpl->tpl_vars['level_2']->value['sub_tabs'])) {?>
-                        <i class="material-icons sub-tabs-arrow">
-                          <?php if ($_smarty_tpl->tpl_vars['level_2']->value['current']) {?>
-                            keyboard_arrow_up
-                          <?php } else { ?>
-                            keyboard_arrow_down
-                          <?php }?>
-                        </i>
-                      <?php }?>
-                    </a>
-
+                        </span>
+                        <?php if (count($_smarty_tpl->tpl_vars['level_2']->value['sub_tabs'])) {?>
+                          <i class="material-icons sub-tabs-arrow">
+                            <?php if ($_smarty_tpl->tpl_vars['level_2']->value['current']) {?>
+                              keyboard_arrow_up
+                            <?php } else { ?>
+                              keyboard_arrow_down
+                            <?php }?>
+                          </i>
+                        <?php }?>
+                      </a>
+                  <?php }?>
                     <?php if (count($_smarty_tpl->tpl_vars['level_2']->value['sub_tabs'])) {?>
                       <ul id="collapse-<?php echo $_smarty_tpl->tpl_vars['level_2']->value['id_tab'];?>
 " class="submenu panel-collapse">
-
                         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['level_2']->value['sub_tabs'], 'level_3');
 $_smarty_tpl->tpl_vars['level_3']->do_else = true;
@@ -122,18 +126,20 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['level_3']->value
 $_smarty_tpl->tpl_vars['level_3']->do_else = false;
 ?>
                           <?php if ($_smarty_tpl->tpl_vars['level_3']->value['active']) {?>
-                            <li class="link-leveltwo<?php if ($_smarty_tpl->tpl_vars['level_3']->value['current']) {?> link-active<?php }?>" id="subtab-<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_3']->value['class_name'],'html','UTF-8' ));?>
+                            <?php if ($_smarty_tpl->tpl_vars['level_3']->value['class_name'] != 'AdminOrders' && $_smarty_tpl->tpl_vars['level_3']->value['class_name'] != 'AdminInvoices' && $_smarty_tpl->tpl_vars['level_3']->value['class_name'] != 'AdminSlip' && $_smarty_tpl->tpl_vars['level_3']->value['class_name'] != 'AdminSlip' && $_smarty_tpl->tpl_vars['level_3']->value['class_name'] != 'AdminCarts' && $_smarty_tpl->tpl_vars['level_3']->value['class_name'] != 'AdminDeliverySlip') {?>
+                              <li class="link-leveltwo<?php if ($_smarty_tpl->tpl_vars['level_3']->value['current']) {?> link-active<?php }?>" id="subtab-<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_3']->value['class_name'],'html','UTF-8' ));?>
 " data-submenu="<?php echo $_smarty_tpl->tpl_vars['level_3']->value['id_tab'];?>
 ">
-                              <a href="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_3']->value['href'],'html','UTF-8' ));?>
+                                <a href="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_3']->value['href'],'html','UTF-8' ));?>
 " class="link">
-                                <?php if ($_smarty_tpl->tpl_vars['level_3']->value['name'] == '') {
+                                  <?php if ($_smarty_tpl->tpl_vars['level_3']->value['name'] == '') {
 echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_3']->value['class_name'],'html','UTF-8' ));
 } else {
 echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['level_3']->value['name'],'html','UTF-8' ));
 }?>
-                              </a>
-                            </li>
+                                </a>
+                              </li>
+                            <?php }?>
                           <?php }?>
                         <?php
 }

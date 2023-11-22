@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.48, created on 2023-11-19 21:24:12
+/* Smarty version 3.1.48, created on 2023-11-22 21:46:11
   from 'C:\xampp\htdocs\litgo_presta\modules\welcome\views\navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_655a1a8c346575_31299974',
+  'unifunc' => 'content_655e1433604416_11737484',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_655a1a8c346575_31299974 (Smarty_Internal_Template $_smarty_tpl) {
+function content_655e1433604416_11737484 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="onboarding-navbar bootstrap">
   <div class="row text">
